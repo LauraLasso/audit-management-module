@@ -111,7 +111,7 @@ Flujo guiado para la generación de nuevas auditorías basadas en plantillas pre
 └── Dockerfile                  # Pipeline de CI (Lint → Test → Build)
 ```
 
-## Funcionalidades implementadas (Obligatorio + Todos los Bonus)
+## Funcionalidades implementadas
 ### Listado y Gestión Global
 * Filtros persistidos: Sincronización bidireccional entre filtros y Query Params (?q=&status=&process=&page=)
 * Dashboard de KPIs: Resumen visual (totales, en curso, completadas, incidencias)
@@ -140,7 +140,7 @@ Flujo guiado para la generación de nuevas auditorías basadas en plantillas pre
 * Último listado cacheado en memoria + banner de aviso
 * Cambios no persisten hasta restaurar conexión
 
-### Configuración del Simulador (Bonus único)
+### Configuración del Simulador
 Panel en Topbar con sliders configurables:
 * Tasa de error API: 0%–50% probabilidad de fallo de red
 * Tasa de KO: 0%–100% probabilidad de fallo en checks automáticos
