@@ -200,3 +200,8 @@ Cada uno de los puntos verificables dentro de una auditoría.
 * Roles → Admin/Auditor con permisos diferenciados
 * E2E → Playwright para flujo completo (crear → ejecutar → DONE)
 * Realtime → WebSocket simulado para ejecución colaborativa
+
+El proyecto actual es una demostración funcional. Para un entorno productivo, se requeriría la implementación, entre otros, de:
+* Capa de autenticación (OIDC/Auth0/NextAuth).
+* Validación de esquemas en el servidor (Zod/Joi).
+* Persistencia en base de datos real (PostgreSQL/MongoDB) con cifrado en reposo.
