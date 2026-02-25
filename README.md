@@ -5,6 +5,12 @@ Módulo de gestión de auditorías. Interfaz tipo producto real para crear, list
 ---
 
 ## Arranque rápido
+Antes de nada, es imprescindible tener instalado Node.js (se recomienda la versión LTS). Al instalarlo, se incluirá automáticamente npm.
+### Clonación del repositorio
+```bash
+git clone <url-del-repositorio>
+cd <nombre-de-la-carpeta>
+```
 ### Desarrollo
 Para trabajar en el proyecto con recarga en caliente:
 ```bash
