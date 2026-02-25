@@ -1,0 +1,24 @@
+@layer tailwind-base, primevue, tailwind-utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  body.p-overflow-hidden {
+    padding-right: 0 !important;
+    overflow-y: scroll !important;
+  }
+
+
+  :focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
