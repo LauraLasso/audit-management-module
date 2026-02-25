@@ -1,6 +1,6 @@
 # Audit Manager
 
-Módulo de gestión de auditorías construido como prueba técnica frontend. Interfaz tipo producto real para crear, listar y ejecutar auditorías con checklists, consumiendo una API 100% simulada con comportamiento realista y persistencia en memoria.
+Módulo de gestión de auditorías. Interfaz tipo producto real para crear, listar y ejecutar auditorías con checklists, consumiendo una API 100% simulada con comportamiento realista y persistencia en memoria.
 
 ---
 
