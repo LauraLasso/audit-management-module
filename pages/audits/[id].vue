@@ -181,10 +181,12 @@ const progressBarColor = computed(() => {
 })
 
 // El botón ejecutar solo aparece si no está DONE y no está ya ejecutando
-const canRun = computed(() =>
-  audit.value?.status === 'DRAFT' ||
-  (audit.value?.status === 'IN_PROGRESS' && !executionFinished.value && okCount.value === 0 && koCount.value === 0)
-)
+const canRun = computed(() => {
+  const isNotFinished = audit.value?.status !== 'DONE' && audit.value?.status !== 'BLOCKED';
+  const hasPendingChecks = pendingCount.value > 0;
+  
+  return isNotFinished && hasPendingChecks;
+});
 
 const running = ref(false)
 const patchingId = ref<string | null>(null)
