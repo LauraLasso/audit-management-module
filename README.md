@@ -42,44 +42,52 @@ docker run -d -p 3000:3000 --name audit-app audit-manager
 | **Tests** | Vitest | Validación de la lógica de cálculo de progreso y coherencia de estados. |
 
 ## Estructura del proyecto
+
+```text
 ├── components/
 │   ├── AppSidebar.vue          # Navegación lateral colapsable
-│   ├── AppTopbar.vue           # Header con notificaciones, reloj y configuración del simulador
+│   ├── AppTopbar.vue           # Header con notificaciones, reloj y config. del simulador
+│   ├── AuditCard.vue           # Card interactiva con KPI de progreso y alertas de vencimiento
 │   ├── AuditStatusBadge.vue    # Badge de estado reutilizable
 │   ├── CheckPriorityBadge.vue  # Badge de prioridad (HIGH, MEDIUM, LOW)
 │   ├── CheckRow.vue            # Item de checklist con estados animados
 │   ├── SkeletonTable.vue       # Skeleton loader para transiciones de carga
 │   ├── ErrorState.vue          # Estado de error con botón de reintento
-│   └── EmptyState.vue          # Estado vacío con CTA
+│   └── EmptyState.vue          # Estado vacío con llamada a la acción (CTA)
 │
 ├── composables/
-│   ├── useAuditApi.ts          # Lógica de fetch, simulación de ejecución y PATCH de checks
-│   ├── useAuditList.ts         # Filtros, paginación, fetch del listado
-│   ├── useAuditDetail.ts       # Detalle, ejecución, PATCH checks
-│   ├── useNetworkStatus.ts     # Detección de modo offline/online
-│   ├── useNotifications.ts     # Sistema de alertas para auditorías vencidas
-│   └── useSimulatorConfig.ts   # Estado global de parámetros del simulador
+│   ├── useAuditApi.ts          # Lógica central de comunicación con la API
+│   ├── useAuditStore.ts        # Almacenamiento global para sincronización de estados entre vistas
+│   ├── useNetworkStatus.ts     # Detección de conectividad (Online/Offline)
+│   ├── useNotifications.ts     # Sistema de alertas para fechas de vencimiento
+│   └── useSimulatorConfig.ts   # Estado global de los parámetros del simulador
 │
 ├── pages/
-│   ├── index.vue               # Dashboard con KPIs de resumen
+│   ├── index.vue               # Dashboard principal con KPIs de resumen
 │   └── audits/
 │       ├── index.vue           # Listado con filtros avanzados y persistencia en URL
 │       ├── new.vue             # Wizard de creación (Datos → Plantilla)
-│       └── [id].vue            # Detalle, gestión de checks y ejecución automática
+│       └── [id].vue            # Detalle, gestión de checks y simulación automática
 │
 ├── server/
-│   └── api/                    # Mock API real con persistencia en memoria
-│       ├── _data.ts            # Generador de dataset inicial (60+ auditorías)
-│       └── audits/             # Endpoints GET, POST, PATCH y /run
+│   └── api/                    # Mock API robusta mediante Nitro Server Routes
+│       ├── _data.ts            # BD en memoria, generación de mocks y lógica de negocio server-side
+│       ├── audits.get.ts       # Endpoint de listado: implementa filtrado, paginación y latencia simulada
+│       ├── audits.post.ts      # Endpoint de creación: vincula plantillas y genera checks iniciales
+│       ├── templates.get.ts    # Endpoint de catálogos: sirve las plantillas y modelos de auditoría
+│       ├── usuarios.ts         # Proxy de API: consumo seguro de datos externos desde el servidor
+│       └── audits/             # Recursos dinámicos: consulta de detalle, ejecución y edición de controles
 │
 ├── tests/
-│   └── unit/                   # Tests de lógica de negocio (Vitest)
-│       └── utils.test.ts
+│   └── utils.test.ts           # Pruebas unitarias de lógica crítica (Vitest)
+├── utils/
+│   └── data.ts                 # Datos maestros: catálogos compartidos de usuarios y procesos
 │       
 │
 ├── layouts/
-│   └── default.vue             # Layout principal con scroll gestionado sin huecos
-└── Dockerfile                  # Pipeline de CI integrado (Lint → Test → Build)
+│   └── default.vue             # Layout base con gestión de scroll optimizada
+└── Dockerfile                  # Pipeline de CI (Lint → Test → Build)
+```
 
 ## Funcionalidades implementadas (Obligatorio + Todos los Bonus)
 ### Listado y Gestión Global
