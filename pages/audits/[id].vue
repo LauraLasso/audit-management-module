@@ -185,7 +185,7 @@ const canRun = computed(() => {
   const isNotFinished = audit.value?.status !== 'DONE' && audit.value?.status !== 'BLOCKED'
   const hasPendingChecks = pendingCount.value > 0
   return isNotFinished && hasPendingChecks
-});
+})
 
 const running = ref(false)
 const patchingId = ref<string | null>(null)
