@@ -37,6 +37,22 @@ docker build -t audit-manager .
 # Ejecución del servicio
 docker run -d -p 3000:3000 --name audit-app audit-manager
 ```
+## Previsualización
+### Dashboard Principal
+Vista general de la aplicación con los indicadores clave (KPIs) y el resumen de actividad actual.
+![Detalle](./screenshots/pag_principal.png)
+
+### Gestión de Auditorías
+Listado completo con soporte para filtrado, búsqueda y paginación "server-side" simulada.
+![Listado de Auditorías](./screenshots/auditorias_total.png)
+
+### Detalle de Evaluación y Checks
+Interfaz de ejecución donde se visualiza el progreso en tiempo real y la gestión individual de cada check (automático o manual).
+![Detalle](./screenshots/checks_auditoria.png)
+
+### Wizard de Creación
+Flujo guiado para la generación de nuevas auditorías basadas en plantillas predefinidas.
+![Detalle](./screenshots/nueva_auditoria.png)
 
 ## Stack tecnológico
 | Tecnología | Elección | Justificación |
