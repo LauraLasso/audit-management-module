@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         // Precargar la fuente de iconos ANTES de renderizar
         {
           rel: 'preload',
-          href: '/node_modules/primeicons/fonts/primeicons.woff2',
+          href: '/fonts/primeicons.woff2',
           as: 'font',
           type: 'font/woff2',
           crossorigin: ''
